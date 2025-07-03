@@ -1,5 +1,5 @@
 # SimpleSiem
-    This project is aimed towards building an easy-to-set-up SIEM, with the goal of simplicity and effectiveness. Something you can spin up in ~5-10 minutes by just running these Python scripts. 
+    This project is aimed towards building an easy to set up SIEM, with the goal of simplicity and effectiveness. Something you can spin up in ~5-10 minutes by just running these Python scripts. 
 
 
 
