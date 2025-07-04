@@ -1,7 +1,8 @@
 import os
 import subprocess
 import json
-import schedule
+import schedule 
+import argparse
 import requests
 import time
 import logging
@@ -31,9 +32,11 @@ def scrap_log(ip):
         return output
 
 def arg_parse():
-    parser = argparse.ArguementParser(description="A simple siem windows agent, usage: ")
+    parser = argparse.ArgumentParser(description="A simple siem windows agent, usage: ")
     parser.add_argument('-i', '--ip-to-forward', help='ip of the machine we want to forward data too', required=True)
-    pass
+    args = parser.parse_args()
+    return args
+
 def main():
     '''
 
@@ -44,8 +47,8 @@ def main():
     args = arg_parse()    # Feel free to adjust push/scrape rate
     # Time current at 5 minutes per push
     push_rate = 5
-    sleep_rate = 290 # 5 * 300 - 10 this is to reduce computational power a bit 
-    output = schedule.every(rate).minutes.do(scrap_log(args.ip_to_forward))
+    sleep_rate = 295 # 5 * 300 - 10 this is to reduce computational power a bit 
+    output = schedule.every(push_rate).minutes.do(scrap_log(args.ip_to_forward))
     while True:
         schedule.run_pending()
         time.sleep(sleep_rate)
