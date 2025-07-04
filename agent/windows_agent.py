@@ -27,7 +27,7 @@ def scrap_log(ip):
         '/c:25',
         '/rd:true',
         '/f:json' ]
-        output = subprocess.run(cmd, capture_output=True)
+        output = subprocess.run(cmd, capture_output=True, text=True)
         push(output, ip)
         return output
 
